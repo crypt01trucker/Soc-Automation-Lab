@@ -104,7 +104,7 @@ Now let's sign up for Shuffle at shuffler.io.
 #### 3. Filter Specific Alerts
 1. **Identify Failed SSH Attempts**: In Shuffle, look for alerts with "User Login Failed".
    - For this lab we will chose rule id "5503" "User Login Failed".
-2. **Modify Integration**: Replace '<level>5</level>' with '<rule_id>5503</rule_id>' to only forward alerts with "User Login Failed":
+2. **Modify Integration**: Replace `<level>5</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
     ```xml
     <integration>
       <name>shuffle</name>
