@@ -56,16 +56,16 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.0-1_amd64.deb && sudo WAZUH_MANAGER='WAZUH-PUBLIC-IP' dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
     ```
-4. **Start Wazuh Agent**: Use these commands to start and check the Wazuh agent.
+4. **Start Wazuh Agent**: Use these commands to start and check the status of the Wazuh agent.
     ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable wazuh-agent
     sudo systemct start wazuh-agent
     sudo systemctl status wazuh-agent
     ```
-5. **Verify Agent**: Confirm that the agent appears in the Wazuh dashboard.
+5. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
 
-#### 1. Configure Wazuh Manager
+#### 1. Configure Wazuh Manager to log all events
 - **Edit Configuration**:
     ```bash
     sudo nano /var/ossec/etc/ossec.conf
