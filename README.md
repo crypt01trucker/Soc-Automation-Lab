@@ -129,7 +129,7 @@ Now let's sign up for Shuffle at shuffler.io.
     ```  
 
 ### Set Up Active Response in Wazuh manager
-1. **Configure Active Response**:
+**Configure Active Response**:
     - Modify the active-response in the Wazuh configuration file. There should be a sample when you scroll all the way down.
     ```xml
     <active-response>
