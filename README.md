@@ -52,19 +52,18 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     sudo apt-get update && apt-get upgrade -y
     ```
-2. **Open SSH Port**: In your cloud provider’s portal.
-3. **Install Wazuh Agent**: Use the command copied from the Wazuh dashboard (Agent installation):
+3. **Install Wazuh Agent**: Use the command copied from the Wazuh dashboard earlier:
     ```bash
-    wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.0-1_amd64.deb
-    sudo dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
+    wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.0-1_amd64.deb && sudo WAZUH_MANAGER='WAZUH-PUBLIC-IP' dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
+    ```
+4. **Start Wazuh Agent**: Use these commands to start and check the Wazuh agent.
+    ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable wazuh-agent
-    sudo systemctl start wazuh-agent
+    sudo systemct start wazuh-agent
     sudo systemctl status wazuh-agent
     ```
-4. **Verify Agent**: Confirm the agent appears in the Wazuh dashboard.
-
-### Part 2: Automating Responses with Wazuh and Shuffle
+5. **Verify Agent**: Confirm that the agent appears in the Wazuh dashboard.
 
 #### 1. Configure Wazuh Manager
 - **Edit Configuration**:
