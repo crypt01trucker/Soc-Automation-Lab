@@ -165,34 +165,26 @@ Now let's sign up for Shuffle at shuffler.io.
       "command": "firewall-drop0"
     }
     ```
-    To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
-    To locate the `command`, SSH into the Wazuh manager, navigate to the /var/ossec/bin directory, and use the `ls` command to list all the available files.
-    Execute the agent_control binary to view the available active response command.
-    
-3. **Add Wazuh App**:
-    - For active response, create the following JSON body to drop the IP of failed SSH attempts:
-    ```json
-    {
-      "alert": {
-        "data": {
-          "srcip": "$exec.all_fields.data.srcip"
-        }
-      },
-      "command": "firewall-drop0"
-    }
-    ```
+   - To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
+   - To locate the `command`, SSH into the Wazuh manager, navigate to the /var/ossec/bin directory, and use the `ls` command to list all the available files.
+   - Execute the agent_control binary to view the available active response command.
+   - Save your workflow.
 
-4. **Finalize Workflow**:
-    - The workflow should ask a SOC analyst whether to block an IP after receiving a failed SSH alert. If the analyst confirms, Wazuh will block the IP.
+### User input
+   - Navigate to the `Trigers` tab in Shuffle and drag the `User Input` app in the workflow.
+   - Rename it to SOC Analyst Input.
+   - In the information box, specify your question. For example: "Do you want to block this IP address?" Then insert the source IP address obtained from the `Execution Argument` as done previously.
+   - Choose "Email" as the response method.
+   - Save your workflow.
 
-### Screenshots
-- Add screenshots of your cloud environment setup, Wazuh Manager installation, agent configuration, and Shuffle workflow to enhance the documentation.
+### Workflow
+For every failed SSH login attempt to the victim VM, the SOC analyst will receive an email prompting them to either block or allow the source IP. The email will display the source IP address, and by clicking "True", the active response command will be triggered to drop the attacker's IP.
 
 ### Verification
-- Verify that failed SSH attempts trigger the workflow, and confirm that the IP is blocked by checking `iptables` on the victim VM:
+To verify that failed SSH attempts trigger the workflow and confirm that the IP address is blocked, check the `iptables` on the victim VM:
     ```bash
     sudo iptables --list
     ```
 
-### License
-This project is licensed under the MIT License.
+### Conclusion
+Congratulations on completing the SOC Automation Lab. You have set up an automated active response workflow where failed login attempts are detected by Wazuh and Suffle, and SOC analysts are notified via email to take action. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
