@@ -139,8 +139,8 @@ Now let's sign up for Shuffle at shuffler.io.
       <timeout>no</timeout>
     </active-response>
     ```
-    
-    Restart and check the status of the Wazuh Manager:
+
+   - Restart and check the status of the Wazuh Manager:
     
     ```bash
     sudo systemctl restart wazuh-manager
