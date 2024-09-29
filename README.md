@@ -165,9 +165,10 @@ Now let's sign up for Shuffle at shuffler.io.
       "command": "firewall-drop0"
     }
     ```
-    To find the Source IP, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
-   To 
-
+    To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
+    To locate the `command`, SSH into the Wazuh manager, navigate to the /var/ossec/bin directory, and use the `ls` command to list all the available files.
+    Execute the agent_control binary to view the available active response command.
+    
 3. **Add Wazuh App**:
     - For active response, create the following JSON body to drop the IP of failed SSH attempts:
     ```json
