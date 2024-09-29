@@ -130,18 +130,18 @@ Now let's sign up for Shuffle at shuffler.io.
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```  
 
-### Set Up Active Response in Wazuh manager
+### Set Up Active Response in Wazuh Manager
+
 **Configure Active Response**: Modify the active-response in the Wazuh configuration file. There should be a sample when you scroll all the way down.
 
-    ```xml
-    <active-response>
-      <command>firewall-drop</command>
-      <location>local</location>
-      <level>5</level>
-      <timeout>no</timeout>
-    </active-response>
-    ```
-
+```xml
+<active-response>
+  <command>firewall-drop</command>
+  <location>local</location>
+  <level>5</level>
+  <timeout>no</timeout>
+</active-response>
+```
    - Restart and check the status of the Wazuh Manager:
     
     ```bash
