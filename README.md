@@ -114,6 +114,20 @@ Now let's sign up for Shuffle at shuffler.io.
     </integration>
     ```
 
+### 4. Configuring HTTP App for Wazuh API Authentication
+
+- Add the HTTP app and drag it into your workflow.
+- Rename it to "API_Auth".
+- Change the find action to `curl` and input:
+
+    ```bash
+    curl -u <username>:<password> -k -X GET "https://<YOUR_WAZUH_MANAGER_IP>:55000/security/user/authenticate?raw=true"
+    ```
+- Use this commmand in your wazuh manager to find the API user password:
+    ```bach
+    sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
+    ```  
+
 #### 4. Set Up Active Response in Wazuh
 1. **Configure Active Response**:
     - Modify the active-response section in `/var/ossec/etc/ossec.conf`:
