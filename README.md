@@ -82,22 +82,25 @@ Now let's sign up for Shuffle at shuffler.io.
    - Click on the Change Me app.
    - Change the name to Repeater.
    - In the Call box, delete "Hello World" text. Next click on the plus icon and select on "Execution Argument".
+   - Save the workflow.
 4. **Add Shuffle Integration**: Add the webhook URL to the Wazuh configuration file.
-   - Go back to the Webhook app and copy the URL.
+   - Navigate back to the Webhook app "Wazuh-Alerts" and copy the URL. Then, paste this URL into the Shuffle integration tag within the Wazuh manager configuration file.
     ```xml
     <integration>
       <name>shuffle</name>
-      <hook_url>http://<YOUR_SHUFFLE_URL>/api/v1/hooks/<HOOK_ID></hook_url>
-      <level>3</level>
+      <hook_url>http://<YOUR_SHUFFLE_URL></hook_url>
+      <level>5</level>
       <alert_format>json</alert_format>
     </integration>
     ```
-    After editing, restart Wazuh Manager:
+    After editing the configuration file, restart the Wazuh Manager and check its status:
     ```bash
     sudo systemctl restart wazuh-manager.service
     sudo systemctl status wazuh-manager.service
     ```
-
+5. **Testing Wazuh Alerts Forwarding to Shuffle**
+   - Return to Shuffle, select the Webhook app ‘Wazuh-Alerts’, and click the ‘Start’ button.
+   - You should now see alot of alerts comming from the victime VM because the SSH port is open.
 #### 3. Filter Specific Alerts
 1. **Identify Failed SSH Attempts**: In the Wazuh dashboard, look for alerts with `rule_id: 5503`.
 2. **Modify Integration**: Replace `<level>` with `<rule_id>5503</rule_id>` to forward only SSH failure alerts:
