@@ -141,6 +141,7 @@ Now let's sign up for Shuffle at shuffler.io.
     ```
     
     Restart and check the status of the Wazuh Manager:
+    
     ```bash
     sudo systemctl restart wazuh-manager
     sudo systemctl status wazuh-manager
