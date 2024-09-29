@@ -23,9 +23,13 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
 
 ##### 2. Create Wazuh Manager VM
 1. **Choose Ubuntu 22.04**: For the Wazuh Manager.
-2. **Configure Firewall**: Open ports 1514, 1515, and 55000 for Wazuh agent and Shuffle integration.
+2. **Update Wazuh manager server**:
+   ```bash
+   sudo apt-get update && apt-get upgrade -y
+   ```
+3. **Configure Firewall in could portal**: Open ports 1514 and 1515 (for Wazuh endpoint agents), and open port 55000 (for integration with Shuffle).
+4. **Configure Firewall in Wazuh manger server**: Open ports 1514, 1515, and 55000 for Wazuh agent and Shuffle integration.
     ```bash
-    sudo apt-get update && apt-get upgrade -y
     ufw allow 1514/tcp
     ufw allow 1514/udp
     ufw allow 1515/tcp
@@ -33,15 +37,15 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ufw allow 55000/tcp
     ufw allow 55000/udp
     ```
-3. **Install Wazuh Manager**:
+5. **Install Wazuh Manager**: Note: Always use the latest command from the Wazuh documentation to ensure compatibility.
     ```bash
     curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
     ```
-4. **Save Credentials**: After installation, save the credentials for the Wazuh dashboard.
+6. **Save Credentials**: After installation, save the credentials displayed for the Wazuh web portal admin credentials in your password manager. If you forget, you can retrieve them using:
     ```bash
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```
-5. **Access the Wazuh Dashboard**: Sign in using the Wazuh Manager’s public IP and add an agent from the dashboard.
+7. **Access the Wazuh Dashboard**: Sign in using the Wazuh Manager’s public IP and navigate to add an agent from the .
 
 #### 3. Create Victim Ubuntu VM
 1. **Update System**:
