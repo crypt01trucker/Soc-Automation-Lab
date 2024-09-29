@@ -70,13 +70,15 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     sudo nano /var/ossec/etc/ossec.conf
     ```
-    Enable logging by setting `logall` and `logall_json` to `yes`.
+    Enable logging by setting both `logall` and `logall_json` to `yes`.
 
-#### 2. Set Up Shuffle Workflow
-1. **Create Workflow**: Name it “SOC Automation”.
-2. **Add Webhook Trigger**: 
-   - Go to Shuffle, add a webhook, and copy its URL.
-3. **Modify Wazuh Integration**: Add the webhook URL to the Wazuh configuration file.
+#### 2. Set Up Shuffle
+Now let's sign up for Shuffle at shuffler.io.
+2. **Create Workflow**: After signing in, click on “New Workflow.” Give it a name, something like “SOC Automation,” and then click “Save.”
+3. **Add Webhook Trigger**: 
+   - Click on “Triggers” at the bottom left corner of your screen, select “Webhook,” and drag it into the middle of your workflow.
+   - Click on the "Webhook app" and rename it Wazuh-Alerts.
+4. **Modify Wazuh Integration**: Add the webhook URL to the Wazuh configuration file.
     ```xml
     <integration>
       <name>shuffle</name>
