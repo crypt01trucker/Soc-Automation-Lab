@@ -1,18 +1,15 @@
 # Soc-Automation-Lab
-Hands-on guide for automating Wazuh alerts using Shuffle
 
 # SOC Automation: Integrating Wazuh Alerts with Shuffle - A Hands-On Guide
 
 ## Introduction
-This hands-on lab is designed for SOC analysts looking to gain practical experience in automating threat detection and response within a Security Operations Center (SOC). The lab demonstrates how to automate Wazuh alerts using Shuffle, helping you build skills in SOC automation. By the end of the lab, you’ll be able to automatically block IP addresses after failed SSH login attempts.
+Welcome to this hands-on guide designed for SOC analysts looking to gain practical experience in Security Operations Center (SOC) automation. In this guide, we’ll take you through the step-by-step process of automating Wazuh alerts using Shuffle. By the end, you’ll have valuable skills to enhance your SOC capabilities, including setting up an automated workflow to handle unsuccessful SSH login attempts on an Ubuntu server.
 
 ## Objectives
-- Set up a Wazuh Manager and Agent.
-- Integrate Wazuh alerts with Shuffle for active response.
-- Automate IP blocking after failed SSH login attempts.
+Setting up an automated SOC environment. Configure Wazuh for threat detection and Shuffle for workflow automation, focusing on automatically blocking IP addresses attempting unauthorized SSH logins.
 
 ## Prerequisites
-- Password Manager (to securely store credentials).
+- **Password Manager**: You'll be creating multiple accounts and VMs, so a password manager is highly recommended.
 - Cloud Account (AWS, GCP, Digital Ocean, or Vultr with a free tier).
 - Two Ubuntu VMs: 
   1. **Wazuh Manager** 
