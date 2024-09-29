@@ -12,8 +12,8 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
 - **Password Manager**: You'll be creating multiple accounts and VMs, so a password manager is highly recommended.
 - **Cloud Account**: Choose a cloud provider like AWS, GCP, Digital Ocean, or Vultr (whichever offers a free tier for this exercise)
 - **Two Ubuntu VMs**: 
-  1. Wazuh Manager 
-  2. Victim Ubuntu VM (for SSH attack simulation)
+1. Wazuh Manager 
+2. Victim Ubuntu VM (for SSH attack simulation)
 
 ### Setting Up the Environment
 
