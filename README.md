@@ -45,7 +45,7 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```
-7. **Access the Wazuh Dashboard**: Sign in using the Wazuh Manager’s public IP and navigate to add an agent from the .
+7. **Access the Wazuh Dashboard**: Sign in to the Wazuh Manager using its public IP address. Navigate to the “Deploy new agent” and select the operating system, which in this case is Linux. Add the public IP address of the Wazuh manager and copy the command to install the Wazuh endpoint agent. Save this command for later use when we create the victim Ubuntu VM.
 
 #### 3. Create Victim Ubuntu VM
 1. **Update System**:
