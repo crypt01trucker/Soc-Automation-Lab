@@ -144,10 +144,10 @@ Now let's sign up for Shuffle at shuffler.io.
 ```
    - Restart and check the status of the Wazuh Manager:
     
-    ```bash
-    sudo systemctl restart wazuh-manager
-    sudo systemctl status wazuh-manager
-    ```
+```bash
+sudo systemctl restart wazuh-manager
+sudo systemctl status wazuh-manager
+```
 
 ### Adding Wazuh App to Shuggle
 1. **Add Wazuh App**: 
