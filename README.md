@@ -166,8 +166,9 @@ Now let's sign up for Shuffle at shuffler.io.
     }
     ```
     To find the Source IP, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
+   To 
 
-2. **Add Wazuh App**:
+3. **Add Wazuh App**:
     - For active response, create the following JSON body to drop the IP of failed SSH attempts:
     ```json
     {
@@ -180,7 +181,7 @@ Now let's sign up for Shuffle at shuffler.io.
     }
     ```
 
-3. **Finalize Workflow**:
+4. **Finalize Workflow**:
     - The workflow should ask a SOC analyst whether to block an IP after receiving a failed SSH alert. If the analyst confirms, Wazuh will block the IP.
 
 ### Screenshots
