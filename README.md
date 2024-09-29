@@ -60,7 +60,7 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable wazuh-agent
-    sudo systemct start wazuh-agent
+    sudo systemctl start wazuh-agent
     sudo systemctl status wazuh-agent
     ```
 5. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
@@ -83,7 +83,7 @@ Now let's sign up for Shuffle at shuffler.io.
    - Change the name to Repeater.
    - In the Call box, delete "Hello World" text. Next click on the plus icon and select on "Execution Argument".
    - Save the workflow.
-4. **Add Shuffle Integration**: Add the webhook URL to the Wazuh configuration file.
+4. **Add Shuffle Integration**: Add the integration tag into the Wazuh configuration file.
    - Navigate back to the Webhook app "Wazuh-Alerts" and copy the URL. Then, paste this URL into the Shuffle integration tag within the Wazuh manager configuration file.
     ```xml
     <integration>
@@ -99,11 +99,12 @@ Now let's sign up for Shuffle at shuffler.io.
     sudo systemctl status wazuh-manager.service
     ```
 5. **Testing Wazuh Alerts Forwarding to Shuffle**
-   - Return to Shuffle, select the Webhook app ‘Wazuh-Alerts’, and click the ‘Start’ button.
-   - You should now see alot of alerts comming from the victime VM because the SSH port is open.
+   - Return to Shuffle, select the Webhook app ‘Wazuh-Alerts’, and click the "Start" button.
+   - You should now see a lot of alerts coming from the victim VM because the SSH port is open.
 #### 3. Filter Specific Alerts
-1. **Identify Failed SSH Attempts**: In the Wazuh dashboard, look for alerts with `rule_id: 5503`.
-2. **Modify Integration**: Replace `<level>` with `<rule_id>5503</rule_id>` to forward only SSH failure alerts:
+1. **Identify Failed SSH Attempts**: In Shuffle, look for alerts with "User Login Failed".
+   - For this lab we will chose rule id "5503" "User Login Failed".
+2. **Modify Integration**: Replace "<level>5</level>` with "<rule_id>5503</rule_id>" to only forward alerts with "User Login Failed":
     ```xml
     <integration>
       <name>shuffle</name>
