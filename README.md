@@ -128,9 +128,9 @@ Now let's sign up for Shuffle at shuffler.io.
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```  
 
-#### 4. Set Up Active Response in Wazuh
+#### 4. Set Up Active Response in Wazuh manager
 1. **Configure Active Response**:
-    - Modify the active-response section in `/var/ossec/etc/ossec.conf`:
+    - Modify the active-response in the Wazuh configuration file. There should be a sample when you scroll all the way down.
     ```xml
     <active-response>
       <command>firewall-drop</command>
@@ -139,17 +139,33 @@ Now let's sign up for Shuffle at shuffler.io.
       <timeout>no</timeout>
     </active-response>
     ```
-    Restart Wazuh Manager:
+    Restart and check the status of the Wazuh Manager:
     ```bash
-    sudo systemctl restart wazuh-manager.service
+    sudo systemctl restart wazuh-manager
+    sudo systemctl status wazuh-manager
     ```
 
-#### 5. Build the Shuffle Workflow
-1. **Add HTTP App**: 
-   - Use it for Wazuh API authentication with the following command:
-    ```bash
-    curl -u <user>:<password> -k -X GET "https://localhost:55000/security/user/authenticate?raw=true"
+#### 5. Adding Wazuh App to Shuggle
+1. **Add Wazuh App**: 
+   - Rename it to Wazuh.
+   - Change the Find Actions to `Run command`.
+   - APIkey: click on the plus icon and chose the HTTP App `API_Auth`.
+   - URL: chose the public IP address of your wazuh manager.
+   - SSL verify: set to False
+   - Agent List: click on the plus icon and hover over `Execution Argument` and click on `Agent ID`.
+   - Wait for complete: set to True
+   - Body: use the following JSON:
+    ```json
+    {
+      "alert": {
+        "data": {
+          "srcip": "$exec.all_fields.data.srcip"
+        }
+      },
+      "command": "firewall-drop0"
+    }
     ```
+
 2. **Add Wazuh App**:
     - For active response, create the following JSON body to drop the IP of failed SSH attempts:
     ```json
