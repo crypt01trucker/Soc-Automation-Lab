@@ -18,7 +18,7 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
 - Create a virtual network in your cloud platform.
 - Allow only your public IP in the firewall to secure access.
 
-#### 2. Create Wazuh Manager VM
+##### 2. Create Wazuh Manager VM
 1. **Choose Ubuntu 22.04**: For the Wazuh Manager.
 2. **Configure Firewall**: Open ports 1514, 1515, and 55000 for Wazuh agent and Shuffle integration.
     ```bash
