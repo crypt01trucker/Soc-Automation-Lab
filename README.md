@@ -138,6 +138,7 @@ Now let's sign up for Shuffle at shuffler.io.
       <timeout>no</timeout>
     </active-response>
     ```
+    
     Restart and check the status of the Wazuh Manager:
     ```bash
     sudo systemctl restart wazuh-manager
@@ -181,9 +182,9 @@ For every failed SSH login attempt to the victim VM, the SOC analyst will receiv
 
 ### Verification
 To verify that failed SSH attempts trigger the workflow and confirm that the IP address is blocked, check the `iptables` on the victim VM:
-    ```bash
-    sudo iptables --list
-    ```
+   ```bash
+   sudo iptables --list
+   ```
 
 ## Conclusion
 Congratulations on completing the SOC Automation Lab. You have set up an automated active response workflow where failed login attempts are detected by Wazuh and Suffle, and SOC analysts are notified via email to take action. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
