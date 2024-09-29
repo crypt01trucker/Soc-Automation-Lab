@@ -10,13 +10,11 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
 
 ## Prerequisites
 - **Password Manager**: You'll be creating multiple accounts and VMs, so a password manager is highly recommended.
-- **Cloud Account**: Choose a cloud provider like AWS, GCP, Digital Ocean, or Vultr (whichever offers a free tier for this exercise).
+- **Cloud Account**: Choose a cloud provider like AWS, GCP, Digital Ocean, or Vultr (whichever offers a free tier for this exercise)
 
-## Step-by-Step Guide
+### Setting Up the Environment
 
-### Part 1: Setting Up the Environment
-
-#### 1. Create a Virtual Network
+##### 1. Create a Virtual Network
 - Create a virtual network in your cloud platform.
 - Allow only your public IP in the firewall to secure access.
 
