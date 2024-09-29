@@ -1,12 +1,14 @@
-# Soc-Automation-Lab
+# SOC-Automation-Lab
 
 # SOC Automation: Integrating Wazuh Alerts with Shuffle - A Hands-On Guide
 
 ## Introduction
 Welcome to this hands-on guide designed for SOC analysts looking to gain practical experience in Security Operations Center (SOC) automation. In this guide, we’ll take you through the step-by-step process of automating Wazuh alerts using Shuffle. By the end, you’ll have valuable skills to enhance your SOC capabilities, including setting up an automated workflow to handle unsuccessful SSH login attempts on an Ubuntu server.
 
+Wazuh is an open-source security monitoring platform that provides threat detection, integrity monitoring, incident response, and compliance. Shuffle is an open-source security orchestration, automation, and response (SOAR) platform that helps automate repetitive tasks and streamline workflows
+
 ## Objectives
-Setting up an automated SOC environment. Configure Wazuh for threat detection and Shuffle for workflow automation, focusing on automatically blocking IP addresses attempting unauthorized SSH logins.
+Set up an automated SOC environment. Configure Wazuh for threat detection and Shuffle for workflow automation. The focus will be on automatically blocking IP addresses attempting unauthorized SSH logins.
 
 ## Prerequisites
 - **Password Manager**: You'll be creating multiple accounts and VMs, so a password manager is highly recommended.
@@ -27,8 +29,8 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
    ```bash
    sudo apt-get update && apt-get upgrade -y
    ```
-3. **Configure Firewall in could portal**: Open ports 1514 and 1515 (for Wazuh endpoint agents), and open port 55000 (for integration with Shuffle).
-4. **Configure Firewall in Wazuh manger server**: Open ports 1514, 1515, and 55000 for Wazuh agent and Shuffle integration.
+3. **Configure Firewall in cloud portal**: Open ports 1514 and 1515 (for Wazuh endpoint agents), and open port 55000 (for integration with Shuffle).
+4. **Configure Firewall in Wazuh manager server**: Open ports 1514, 1515, and 55000 for Wazuh agent and Shuffle integration.
     ```bash
     ufw allow 1514/tcp
     ufw allow 1514/udp
@@ -52,25 +54,25 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```bash
     sudo apt-get update && apt-get upgrade -y
     ```
-3. **Install Wazuh Agent**: Use the command copied from the Wazuh dashboard earlier:
+2. **Install Wazuh Agent**: Use the command copied from the Wazuh dashboard earlier:
     ```bash
     wget https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.9.0-1_amd64.deb && sudo WAZUH_MANAGER='WAZUH-PUBLIC-IP' dpkg -i ./wazuh-agent_4.9.0-1_amd64.deb
     ```
-4. **Start Wazuh Agent**: Use these commands to start and check the status of the Wazuh agent.
+3. **Start Wazuh Agent**: Use these commands to start and check the status of the Wazuh agent.
     ```bash
     sudo systemctl daemon-reload
     sudo systemctl enable wazuh-agent
     sudo systemctl start wazuh-agent
     sudo systemctl status wazuh-agent
     ```
-5. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
+4. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
 
 ### Configure Wazuh Manager to log all events
 - **Edit Configuration**:
     ```bash
     sudo nano /var/ossec/etc/ossec.conf
     ```
-    Enable logging by setting both `logall` and `logall_json` to `yes`.
+    Enable logging by setting both `logall` and `logall_json` to `yes` in the configuration file.
 
 ### Set Up Shuffle
 Now let's sign up for Shuffle at shuffler.io.
@@ -123,7 +125,7 @@ Now let's sign up for Shuffle at shuffler.io.
     ```bash
     curl -u <username>:<password> -k -X GET "https://<YOUR_WAZUH_MANAGER_IP>:55000/security/user/authenticate?raw=true"
     ```
-- Use this commmand in your wazuh manager to find the API user password:
+- Use this command in your wazuh manager to find the API user password:
     ```bach
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```  
@@ -175,12 +177,12 @@ Now let's sign up for Shuffle at shuffler.io.
 ### User input
    - Navigate to the `Trigers` tab in Shuffle and drag the `User Input` app in the workflow.
    - Rename it to SOC Analyst Input.
-   - In the information box, specify your question. For example: "Do you want to block this IP address?" Then insert the source IP address obtained from the `Execution Argument` as done previously.
+   - In the information box, specify your question. For example, 'Do you want to block this IP address?' Then insert the source IP address obtained from the `Execution Argument` as done previously.
    - Choose "Email" as the response method.
    - Save your workflow.
 
 ### Workflow
-For every failed SSH login attempt to the victim VM, the SOC analyst will receive an email prompting them to either block or allow the source IP. The email will display the source IP address, and by clicking "True", the active response command will be triggered to drop the attacker's IP.
+For every failed SSH login attempt to the victim VM, the SOC analyst will receive an email prompting them to either block or allow the source IP. The email will display the source IP address, and by clicking "True", the active response command will be triggered to drop the attacker's IP address.
 
 ### Verification
 To verify that failed SSH attempts trigger the workflow and confirm that the IP address is blocked, check the `iptables` on the victim VM:
@@ -189,4 +191,4 @@ To verify that failed SSH attempts trigger the workflow and confirm that the IP 
    ```
 
 ## Conclusion
-Congratulations on completing the SOC Automation Lab. You have set up an automated active response workflow where failed login attempts are detected by Wazuh and Suffle, and SOC analysts are notified via email to take action. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
+You have set up an automated active response workflow where failed login attempts are detected by Wazuh and, and SOC analysts are notified via email to take action by Shuffle. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
