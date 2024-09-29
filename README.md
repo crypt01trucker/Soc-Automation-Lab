@@ -65,14 +65,14 @@ Setting up an automated SOC environment. Configure Wazuh for threat detection an
     ```
 5. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
 
-#### 1. Configure Wazuh Manager to log all events
+### Configure Wazuh Manager to log all events
 - **Edit Configuration**:
     ```bash
     sudo nano /var/ossec/etc/ossec.conf
     ```
     Enable logging by setting both `logall` and `logall_json` to `yes`.
 
-#### 2. Set Up Shuffle
+### Set Up Shuffle
 Now let's sign up for Shuffle at shuffler.io.
 1. **Create Workflow**: After signing in, click on “New Workflow.” Give it a name, something like “SOC Automation,” and then click “Save.”
 2. **Add Webhook Trigger**: 
@@ -101,7 +101,7 @@ Now let's sign up for Shuffle at shuffler.io.
 5. **Testing Wazuh Alerts Forwarding to Shuffle**
    - Return to Shuffle, select the Webhook app ‘Wazuh-Alerts’, and click the "Start" button.
    - You should now see a lot of alerts coming from the victim VM because the SSH port is open.
-#### 3. Filter Specific Alerts
+#### Filter Specific Alerts
 1. **Identify Failed SSH Attempts**: In Shuffle, look for alerts with "User Login Failed".
    - For this lab we will chose rule id "5503" "User Login Failed".
 2. **Modify Integration**: Replace `<level>5</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
@@ -114,7 +114,7 @@ Now let's sign up for Shuffle at shuffler.io.
     </integration>
     ```
 
-### 4. Configuring HTTP App for Wazuh API Authentication
+### Configuring HTTP App for Wazuh API Authentication
 
 - Add the HTTP app and drag it into your workflow.
 - Rename it to "API_Auth".
@@ -128,7 +128,7 @@ Now let's sign up for Shuffle at shuffler.io.
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```  
 
-#### 4. Set Up Active Response in Wazuh manager
+### Set Up Active Response in Wazuh manager
 1. **Configure Active Response**:
     - Modify the active-response in the Wazuh configuration file. There should be a sample when you scroll all the way down.
     ```xml
@@ -145,7 +145,7 @@ Now let's sign up for Shuffle at shuffler.io.
     sudo systemctl status wazuh-manager
     ```
 
-#### 5. Adding Wazuh App to Shuggle
+### Adding Wazuh App to Shuggle
 1. **Add Wazuh App**: 
    - Rename it to Wazuh.
    - Change the Find Actions to `Run command`.
@@ -186,5 +186,5 @@ To verify that failed SSH attempts trigger the workflow and confirm that the IP 
     sudo iptables --list
     ```
 
-### Conclusion
+## Conclusion
 Congratulations on completing the SOC Automation Lab. You have set up an automated active response workflow where failed login attempts are detected by Wazuh and Suffle, and SOC analysts are notified via email to take action. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
