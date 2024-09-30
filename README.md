@@ -5,7 +5,11 @@
 ## Introduction
 Welcome to this hands-on guide designed for SOC analysts looking to gain practical experience in Security Operations Center (SOC) automation. In this guide, we’ll take you through the step-by-step process of automating Wazuh alerts using Shuffle. By the end, you’ll have valuable skills to enhance your SOC capabilities, including setting up an automated workflow to handle unsuccessful SSH login attempts on an Ubuntu server.
 
-Wazuh is an open-source security monitoring platform that provides threat detection, integrity monitoring, incident response, and compliance. Shuffle is an open-source security orchestration, automation, and response (SOAR) platform that helps automate repetitive tasks and streamline workflows
+Wazuh is a unified open-source security platform offering both XDR (Extended Detection and Response) and SIEM (Security Information and Event Management) capabilities. It provides robust protection for endpoints, cloud workloads, and on-premises environments by delivering advanced threat detection, integrity monitoring, incident response, and compliance enforcement.
+
+Shuffle, also open-source, is a highly versatile SOAR (Security Orchestration, Automation, and Response) platform. It streamlines security operations by automating repetitive tasks, optimizing workflows, and enabling faster, more efficient incident response.
+
+By integrating Wazuh with Shuffle, organizations can leverage the power of unified threat management with automated response, significantly enhancing their security posture and operational efficiency.
 
 ## Objectives
 Set up an automated SOC environment. Configure Wazuh for threat detection and Shuffle for workflow automation. The focus will be on automatically blocking IP addresses attempting unauthorized SSH logins.
