@@ -111,7 +111,7 @@ Now let's sign up for Shuffle at shuffler.io.
     <integration>
       <name>shuffle</name>
       <hook_url>http://<YOUR_SHUFFLE_URL></hook_url>
-      <level>5</level>
+      <level>3</level>
       <alert_format>json</alert_format>
     </integration>
     ```
