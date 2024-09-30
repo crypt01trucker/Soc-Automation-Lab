@@ -186,14 +186,14 @@ sudo systemctl status wazuh-manager.service
    - Wait for complete: set to True
    - Body: use the following JSON:
 ```json
-    {
-      "alert": {
-        "data": {
-          "srcip": "$exec.all_fields.data.srcip"
-        }
-      },
-      "command": "firewall-drop0"
+{
+  "alert": {
+    "data": {
+      "srcip": "$exec.all_fields.data.srcip"
     }
+  },
+  "command": "firewall-drop0",
+}
 ```
    - To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
 
