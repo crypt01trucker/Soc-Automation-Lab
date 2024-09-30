@@ -232,3 +232,5 @@ sudo iptables --list
 
 ## Conclusion
 You have set up an automated active response workflow where failed login attempts are detected by Wazuh and, and SOC analysts are notified via email to take action by Shuffle. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
+
+![Workflow](Screenshot/Conclusion.png)
