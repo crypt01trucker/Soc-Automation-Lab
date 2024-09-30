@@ -185,7 +185,7 @@ sudo systemctl status wazuh-manager.service
    - Agent List: click on the plus icon and hover over `Execution Argument` and click on `Agent ID`.
    - Wait for complete: set to True
    - Body: use the following JSON:
-    ```json
+```json
     {
       "alert": {
         "data": {
@@ -194,7 +194,7 @@ sudo systemctl status wazuh-manager.service
       },
       "command": "firewall-drop0"
     }
-    ```
+```
    - To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
 
   ![Source-IP](Screenshot/Srcip.png)
