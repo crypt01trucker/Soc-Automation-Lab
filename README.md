@@ -126,9 +126,10 @@ sudo systemctl status wazuh-manager.service
 #### Filter Specific Alerts
 1. **Identify Failed SSH Attempts**: In Shuffle, look for alerts with "User Login Failed".
    - For this lab we will chose rule id "5503" "User Login Failed".
-2. **Modify Integration**: Replace `<level>3</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
 
-![Rule_ID](Screenshot/Rule-ID.png)
+![Rule_ID](Screenshot/Rule-ID.png)  
+   
+2. **Modify Integration**: Replace `<level>3</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
 
 ```xml
 <integration>
