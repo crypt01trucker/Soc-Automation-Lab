@@ -73,7 +73,7 @@ Set up an automated SOC environment. Configure Wazuh for threat detection and Sh
     sudo nano /var/ossec/etc/ossec.conf
     ```
     Enable logging by setting both `logall` and `logall_json` to `yes` in the configuration file.
-  ![Logall](screenshots/logall.png)
+  ![Logall](Screenshot/Logall.png)
     After editing the configuration file, restart the Wazuh Manager and check its status:
     ```bash
     sudo systemctl restart wazuh-manager.service
