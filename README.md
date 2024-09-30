@@ -39,7 +39,7 @@ Set up an automated SOC environment. Configure Wazuh for threat detection and Sh
     ufw allow 55000/tcp
     ufw allow 55000/udp
     ```
-5. **Install Wazuh Manager**: Note: Always use the latest command from the Wazuh [documentation](https://documentation.wazuh.com/current/quickstart.html#installing-wazuh) to ensure compatibility.
+5. **Install Wazuh Manager**: Note: Always use the latest command from the Wazuh [documentation](https://documentation.wazuh.com/current/quickstart.html#installing-wazuh)[^1] to ensure compatibility.
     ```bash
     curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
     ```
@@ -101,7 +101,7 @@ Now let's sign up for Shuffle at shuffler.io.
 ![Change_ME](Screenshot/change_me.png)  
 ![Repeater](Screenshot/Repeater.png)
      
-4. **Add Shuffle Integration**: Add the [integration](https://wazuh.com/blog/integrating-wazuh-with-shuffle/) tag into the Wazuh configuration file.
+4. **Add Shuffle Integration**: Add the [integration](https://wazuh.com/blog/integrating-wazuh-with-shuffle/)[^2] tag into the Wazuh configuration file.
    - Navigate back to the Webhook app "Wazuh-Alerts" and copy the URL. Then, paste this URL into the Shuffle integration tag within the Wazuh manager configuration file.
     ```xml
     <integration>
@@ -236,3 +236,8 @@ sudo iptables --list
 You have set up an automated active response workflow where failed login attempts are detected by Wazuh and, and SOC analysts are notified via email to take action by Shuffle. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
 
 ![Workflow](Screenshot/Conclusion.png)
+
+###Links
+[^1]: [Installing Wazuh](https://documentation.wazuh.com/current/quickstart.html#installing-wazuh)
+
+[^2]: [Shuffle integration Tag](https://wazuh.com/blog/integrating-wazuh-with-shuffle/)
