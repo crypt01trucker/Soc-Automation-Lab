@@ -61,9 +61,9 @@ Set up an automated SOC environment. Configure Wazuh for threat detection and Sh
 3. **Start Wazuh Agent**: Use these commands to start and check the status of the Wazuh agent.
     ```bash
     sudo systemctl daemon-reload
-    sudo systemctl enable wazuh-agent
-    sudo systemctl start wazuh-agent
-    sudo systemctl status wazuh-agent
+    sudo systemctl enable wazuh-agent.service
+    sudo systemctl start wazuh-agent.service
+    sudo systemctl status wazuh-agent.service
     ```
 4. **Verify Agent**: Go back to the Wazuh web portal and confirm that the agent appears in the Wazuh dashboard.
 
@@ -73,6 +73,11 @@ Set up an automated SOC environment. Configure Wazuh for threat detection and Sh
     sudo nano /var/ossec/etc/ossec.conf
     ```
     Enable logging by setting both `logall` and `logall_json` to `yes` in the configuration file.
+    After editing the configuration file, restart the Wazuh Manager and check its status:
+    ```bash
+    sudo systemctl restart wazuh-manager.service
+    sudo systemctl status wazuh-manager.service
+    ```  
 
 ### Set Up Shuffle
 Now let's sign up for Shuffle at shuffler.io.
@@ -145,8 +150,8 @@ Now let's sign up for Shuffle at shuffler.io.
    - Restart and check the status of the Wazuh Manager:
     
 ```bash
-sudo systemctl restart wazuh-manager
-sudo systemctl status wazuh-manager
+sudo systemctl restart wazuh-manager.service
+sudo systemctl status wazuh-manager.service
 ```
 
 ### Adding Wazuh App to Shuggle
