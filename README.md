@@ -217,11 +217,18 @@ sudo systemctl status wazuh-manager.service
 ### Workflow
 For every failed SSH login attempt to the victim VM, the SOC analyst will receive an email prompting them to either block or allow the source IP. The email will display the source IP address, and by clicking "True", the active response command will be triggered to drop the attacker's IP address.
 
+![Email](Screenshot/email.png)
+
+![Clicked-True](Screenshot/clicked-true.png)
+
 ### Verification
 To verify that failed SSH attempts trigger the workflow and confirm that the IP address is blocked, check the `iptables` on the victim VM:
-   ```bash
-   sudo iptables --list
-   ```
+
+```bash
+sudo iptables --list
+```
+
+![Iptables](Screenshot/iptables-list.png)
 
 ## Conclusion
 You have set up an automated active response workflow where failed login attempts are detected by Wazuh and, and SOC analysts are notified via email to take action by Shuffle. This setup is just the beginning of more advanced SOC automation labs and techniques. Stay tuned for future labs where we'll dive deeper.
