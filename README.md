@@ -119,7 +119,7 @@ Now let's sign up for Shuffle at shuffler.io.
     ```
 ![Integration](Screenshot/integration-url.png)
 
-    After editing the configuration file, restart the Wazuh Manager and check its status:
+   - After editing the configuration file, restart the Wazuh Manager and check its status:
     
 ```bash
 sudo systemctl restart wazuh-manager.service
