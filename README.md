@@ -39,7 +39,7 @@ Set up an automated SOC environment. Configure Wazuh for threat detection and Sh
     ufw allow 55000/tcp
     ufw allow 55000/udp
     ```
-5. **Install Wazuh Manager**: Note: Always use the latest command from the Wazuh documentation to ensure compatibility.
+5. **Install Wazuh Manager**: Note: Always use the latest command from the Wazuh [documentation](https://documentation.wazuh.com/current/quickstart.html#installing-wazuh) to ensure compatibility.
     ```bash
     curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh && sudo bash ./wazuh-install.sh -a
     ```
