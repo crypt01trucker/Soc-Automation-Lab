@@ -101,7 +101,7 @@ Now let's sign up for Shuffle at shuffler.io.
 ![Change_ME](Screenshot/change_me.png)  
 ![Repeater](Screenshot/Repeater.png)
      
-4. **Add Shuffle Integration**: Add the integration tag into the Wazuh configuration file.
+4. **Add Shuffle Integration**: Add the [integration](https://wazuh.com/blog/integrating-wazuh-with-shuffle/) tag into the Wazuh configuration file.
    - Navigate back to the Webhook app "Wazuh-Alerts" and copy the URL. Then, paste this URL into the Shuffle integration tag within the Wazuh manager configuration file.
     ```xml
     <integration>
