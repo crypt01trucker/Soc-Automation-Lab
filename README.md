@@ -129,14 +129,14 @@ sudo systemctl status wazuh-manager.service
 
 ![Rule_ID](Screenshot/Rule-ID.png)
 
-    ```xml
-    <integration>
-      <name>shuffle</name>
-      <hook_url>http://<YOUR_SHUFFLE_URL>/api/v1/hooks/<HOOK_ID></hook_url>
-      <rule_id>5503</rule_id>
-      <alert_format>json</alert_format>
-    </integration>
-    ```
+```xml
+<integration>
+  <name>shuffle</name>
+  <hook_url>http://<YOUR_SHUFFLE_URL>/api/v1/hooks/<HOOK_ID></hook_url>
+  <rule_id>5503</rule_id>
+  <alert_format>json</alert_format>
+</integration>
+```
     
 ### Configuring HTTP App for Wazuh API Authentication
 
