@@ -96,6 +96,9 @@ Now let's sign up for Shuffle at shuffler.io.
    - Change the name to Repeater.
    - In the Call box, delete "Hello World" text. Next click on the plus icon and select on "Execution Argument".
    - Save the workflow.
+  
+![Repeater](Screenshot/Repeater.png)
+     
 4. **Add Shuffle Integration**: Add the integration tag into the Wazuh configuration file.
    - Navigate back to the Webhook app "Wazuh-Alerts" and copy the URL. Then, paste this URL into the Shuffle integration tag within the Wazuh manager configuration file.
     ```xml
