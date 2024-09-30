@@ -125,7 +125,10 @@ sudo systemctl status wazuh-manager.service
 #### Filter Specific Alerts
 1. **Identify Failed SSH Attempts**: In Shuffle, look for alerts with "User Login Failed".
    - For this lab we will chose rule id "5503" "User Login Failed".
-2. **Modify Integration**: Replace `<level>5</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
+2. **Modify Integration**: Replace `<level>3</level>` with `<rule_id>5503</rule_id>` to only forward alerts with "User Login Failed":
+
+![Rule_ID](Screenshot/Rule-ID.png)
+
     ```xml
     <integration>
       <name>shuffle</name>
@@ -134,7 +137,7 @@ sudo systemctl status wazuh-manager.service
       <alert_format>json</alert_format>
     </integration>
     ```
-
+    
 ### Configuring HTTP App for Wazuh API Authentication
 
 - Add the HTTP app and drag it into your workflow.
@@ -148,16 +151,19 @@ sudo systemctl status wazuh-manager.service
     ```bach
     sudo tar -O -xvf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt
     ```  
+![API_Auth](Screenshot/API_Auth.png)
 
 ### Set Up Active Response in Wazuh Manager
 
 **Configure Active Response**: Modify the active-response in the Wazuh configuration file. There should be a sample when you scroll all the way down.
 
+![Active-Response-Sample](Screenshot/active-response-sample.png)
+
 ```xml
 <active-response>
   <command>firewall-drop</command>
   <location>local</location>
-  <level>5</level>
+  <level>3</level>
   <timeout>no</timeout>
 </active-response>
 ```
@@ -168,7 +174,7 @@ sudo systemctl restart wazuh-manager.service
 sudo systemctl status wazuh-manager.service
 ```
 
-### Adding Wazuh App to Shuggle
+### Adding Wazuh App to Shuffle
 1. **Add Wazuh App**: 
    - Rename it to Wazuh.
    - Change the Find Actions to `Run command`.
@@ -189,8 +195,14 @@ sudo systemctl status wazuh-manager.service
     }
     ```
    - To find the `Source IP`, hover over `Execution Argument`, scroll down to `data srcip`, click on it, save it, and input this into the JSON file.
+
+  ![Source-IP](Screenshot/Srcip.png)
+ 
    - To locate the `command`, SSH into the Wazuh manager, navigate to the /var/ossec/bin directory, and use the `ls` command to list all the available files.
    - Execute the agent_control binary to view the available active response command.
+
+![Drop-IP-Command](Screenshot/Command-firewall-drop.png)
+
    - Save your workflow.
 
 ### User input
@@ -199,6 +211,8 @@ sudo systemctl status wazuh-manager.service
    - In the information box, specify your question. For example, 'Do you want to block this IP address?' Then insert the source IP address obtained from the `Execution Argument` as done previously.
    - Choose "Email" as the response method.
    - Save your workflow.
+
+![User-Input](Screenshot/user-input.png)
 
 ### Workflow
 For every failed SSH login attempt to the victim VM, the SOC analyst will receive an email prompting them to either block or allow the source IP. The email will display the source IP address, and by clicking "True", the active response command will be triggered to drop the attacker's IP address.
