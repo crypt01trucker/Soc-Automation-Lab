@@ -237,7 +237,7 @@ You have set up an automated active response workflow where failed login attempt
 
 ![Workflow](Screenshot/Conclusion.png)
 
-###Links
+### Links
 [^1]: [Installing Wazuh](https://documentation.wazuh.com/current/quickstart.html#installing-wazuh)
 
 [^2]: [Shuffle integration Tag](https://wazuh.com/blog/integrating-wazuh-with-shuffle/)
