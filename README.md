@@ -88,6 +88,9 @@ Now let's sign up for Shuffle at shuffler.io.
 2. **Add Webhook Trigger**: 
    - Click on “Triggers” at the bottom left corner of your screen, select “Webhook,” and drag it into the middle of your workflow.
    - Click on the "Webhook app" and rename it Wazuh-Alerts.
+
+![Webhook](Screenshot/webhook.png)
+     
 3. **Configure the Change Me App**
    - Click on the Change Me app.
    - Change the name to Repeater.
