@@ -89,7 +89,6 @@ Now let's sign up for Shuffle at shuffler.io.
    - Click on “Triggers” at the bottom left corner of your screen, select “Webhook,” and drag it into the middle of your workflow.
    - Click on the "Webhook app" and rename it Wazuh-Alerts.
      
-![Change_ME](Screenshot/change_me.png)
 ![Webhook](Screenshot/webhook.png)
      
 3. **Configure the Change Me App**
@@ -97,7 +96,8 @@ Now let's sign up for Shuffle at shuffler.io.
    - Change the name to Repeater.
    - In the Call box, delete "Hello World" text. Next click on the plus icon and select on "Execution Argument".
    - Save the workflow.
-  
+
+![Change_ME](Screenshot/change_me.png)  
 ![Repeater](Screenshot/Repeater.png)
      
 4. **Add Shuffle Integration**: Add the integration tag into the Wazuh configuration file.
