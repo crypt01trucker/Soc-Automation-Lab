@@ -110,12 +110,14 @@ Now let's sign up for Shuffle at shuffler.io.
       <alert_format>json</alert_format>
     </integration>
     ```
+![Integration](Screenshot/integration-url.png)
+
     After editing the configuration file, restart the Wazuh Manager and check its status:
     ```bash
     sudo systemctl restart wazuh-manager.service
     sudo systemctl status wazuh-manager.service
     ```
-5. **Testing Wazuh Alerts Forwarding to Shuffle**
+4. **Testing Wazuh Alerts Forwarding to Shuffle**
    - Return to Shuffle, select the Webhook app ‘Wazuh-Alerts’, and click the "Start" button.
    - You should now see a lot of alerts coming from the victim VM because the SSH port is open.
 #### Filter Specific Alerts
